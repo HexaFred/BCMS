@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<!-- - MICHELIX Quentin & BORRI Frédéric - -->
+<html lang="en-us">
+
+<head>
+  <title>BCMS</title>
+  <link rel="stylesheet" href="css/index.css">
+  <meta charset="UTF-8" />
+  <meta name="author" content="Michelix Quentin and Borri Frédéric" />
+  <meta name="description" content="BCMS" />
+  <meta name="keywords" content="WebSockets" />
+  <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+  <a href="index.html"></a>
+  <link rel="shortcut icon" href="./img/logo.jpeg" />
+  <script src="js/index.js" type="text/javascript"></script>
+</head>
+
+<body>
+  <div class="title">
+    <h1>Barbados Crisis Management System<br></h1>
+  </div>
+  <!-- - Flame background - -->
+  <div class="bg-img"><img src=./img/blue_fire_bg.gif alt="Blue Fire"></img></div>
+
+  <main id="blur">
+    <div>
+      <!-- - Step 0 : Crisis - -->
+      <b><button id="Crise" class="buttonCrise">- Add a crisis -</button></b>
+      <h2></h2>
+
+      <!-- - Step 1 : Connection - -->
+      <input type="checkbox" name="PoliceConnected" id="checkPolice" disabled unchecked /><label id="SeecheckPolice"
+        name="checkboxstyle"></label>
+      <button id="policier" class="button button1" value="Policier" disabled><span><img src=./img/police_icon.png
+            class="icon" alt="Police icon"><b>Policeman</b></span></button>
+      <b><text class="etapes" id="etape1">- Connection -</text></b>
+      <button id="pompier" class="button button2" value="Pompier" disabled><span><b>Firefighter</b><img
+            src=./img/pompier_icon.png class="icon2" alt="Pompier icon"></span></button>
+      <input type="checkbox" name="PompierConnected" id="checkPompier" disabled unchecked /><label id="SeecheckPompier"
+        name="checkboxstyle"></label>
+    </div>
+
+    <div class="space"></div>
+
+    <!-- - Step 2 : Vehicles - -->
+    <label class="Instructions" id="Instructions1">Number of vehicles :</label>
+    <input type="number" class="VehiclesInput" id="nbVehiclesPolicier" placeholder="ex : 1" min="1" max="3" />
+    <!-- Button send vehicle police -->
+    <button class="buttonLeft" id="PolicierVehicles"><b>Send</b></button>
+    <img src=./img/police_vehicle.png id="icon3" alt="Police icon">
+    <b><text class="etapes" id="etape2">- Vehicles -</text></b>
+    <img src=./img/fire_vehicle.png id="icon4" alt="Police icon">
+    <!-- Button send vehicle pompier -->
+    <button class="buttonRight" id="PompierVehicles"><b>Send</b></button>
+
+    <input type="number" class="VehiclesInput Reverse" id="nbVehiclesPompier" placeholder="ex : 1" min="1" max="4" />
+    <label class="Instructions" id="Instructions1_1">: Number of vehicles</label>
+
+
+    <div class="space"></div>
+
+    <!-- - Step 3 : Routes - -->
+    <!-- - Routes Police Vehicles - -->
+    <label class="Instructions" id="Instructions2">Route :</label>
+    <input type="checkbox" class="hidden" id="R1PoliceCheck" disabled unchecked />
+    <input type="checkbox" class="hidden" id="R2PoliceCheck" disabled unchecked />
+    <input type="checkbox" class="hidden" id="R3PoliceCheck" disabled unchecked />
+    <button class="Route Route1" id="R1Police"><b>1</b></button>
+    <button class="Route Route2" id="R2Police"><b>2</b></button>
+    <button class="Route Route3" id="R3Police"><b>3</b></button>
+    <!-- Button send route police -->
+    <button class="buttonLeft" id="RoutePolicier" disabled><b>Send</b></button>
+    <img src=./img/map_icon.png id="icon5" alt="Route icon">
+
+    <b><text class="etapes" id="etape3">- Route for Police Vehicles -</text></b>
+    <img src=./img/map_icon2.png id="icon6" alt="Route icon">
+    <!-- Button send route pompier -->
+    <button class="buttonRight" id="RoutePompier" disabled><b>View</b></button>
+    <label class="Instructions" id="Instructions2_2">: Route</label>
+
+    <div class="space"></div>
+
+    <!-- - Routes Fire Trucks - -->
+    <label class="Instructions" id="Instructions3">Route :</label>
+    <input type="checkbox" class="hidden" id="R1PompierCheck" disabled unchecked />
+    <input type="checkbox" class="hidden" id="R2PompierCheck" disabled unchecked />
+    <input type="checkbox" class="hidden" id="R3PompierCheck" disabled unchecked />
+    <button class="Route Route1" id="R1Pompier"><b>1</b></button>
+    <button class="Route Route2" id="R2Pompier"><b>2</b></button>
+    <button class="Route Route3" id="R3Pompier"><b>3</b></button>
+    <!-- Button send route police -->
+    <button class="buttonLeft" id="RoutePolicier2" disabled><b>Send</b></button>
+    <img src=./img/map_icon3.png id="icon5_2" alt="Route icon">
+    <b><text class="etapes" id="etape3_2">- Route for Fire Vehicles -</text></b>
+    <img src=./img/map_icon4.png id="icon6_2" alt="Route icon">
+    <!-- Button send route pompier -->
+    <button class="buttonRight" id="RoutePompier2" disabled><b>View</b></button>
+    <label class="Instructions" id="Instructions3_2">: Route</label>
+
+    <div class="space"></div>
+
+    <!-- - Step 4 : Vehicles dispatch - -->
+    <label class="Instructions" id="Instructions4">Vehicles sent : </label>
+    <!-- Button dispatch PV -->
+    <button class="buttonLeft" id="PVsent"><b>DISPATCH</b></button>
+    <img src=./img/policecar_moving.gif id="icon7" alt="Police_oncoming_icon">
+    <b><text class="etapes" id="etape4">- VEHICLES DISPATCHED -</text></b>
+    <img src=./img/firetruck_moving.gif id="icon8" alt="Firetruck_oncoming_icon">
+    <!-- Button dispatch FT -->
+    <button class="buttonRight" id="FTsent"><b>DISPATCH</b></button>
+    <label class="Instructions" id="Instructions4_2">: Vehicles sent</label>
+
+    <div class="space"></div>
+
+    <!-- - Step 5_1 : Vehicles breakdown - -->
+    <label class="Instructions" id="Instructions5">BREAKDOWN :</label>
+    <!-- Button breakdown PV -->
+    <button class="buttonLeft" id="PVbreakdown"><b>Send</b></button>
+    <img src=./img/breakdown.png id="icon9" alt="breakdown_icon">
+    <b><text class="etapes" id="etape5">- VEHICLES BREAKDOWN -</text></b>
+    <img src=./img/breakdown2.png id="icon10" alt="breakdown2_icon">
+    <!-- Button breakdown FT -->
+    <button class="buttonRight" id="FTbreakdown"><b>Send</b></button>
+    <label class="Instructions" id="Instructions5_2">: BREAKDOWN</label>
+
+    <div class="space"></div>
+
+    <!-- - Step 5_2 : crisis less severe or more severe - -->
+    <!-- Button crisis more severe -->
+    <button class="buttonLeft" id="CrisisMoreSevere"><b>crisis more severe</b></button>
+    <img src=./img/question_mark.png id="icon13" alt="choice?">
+    <!-- Button crisis more severe -->
+    <button class="buttonLeft" id="CrisisLessSevere"><b>crisis less severe</b></button>
+    <img src=./img/question_mark.png id="icon13_2" alt="choice?">
+    <!-- Button vehicles blocked -->
+    <button class="buttonRight" id="blocked_vehicle"><b>vehicles blocked</b></button>
+    <img src=./img/question_mark.png id="icon13_3" alt="choice?">
+    <!-- Button crisis normal -->
+    <button class="buttonRight" id="RAS"><b>All Fine</b></button>
+    <img src=./img/question_mark.png id="icon13_4" alt="choice?">
+
+    <div class="space"></div>
+
+    <!-- - Step 5_3 : Vehicles arrived - -->
+    <label class="Instructions" id="Instructions5_3">PV arrived :</label>
+    <!-- Button send police -->
+    <button class="buttonLeft" id="PVArrived"><b>view</b></button>
+    <img src=./img/arrival_flag_1.png id="icon11" alt="arrived_blocked">
+    <b><text class="etapes" id="etape5_3">- VEHICLES ARRIVED -</text></b>
+    <img src=./img/arrival_flag_2.png id="icon12" alt="arrived_blocked">
+    <!-- Button send pompier -->
+    <button class="buttonRight" id="FTArrived"><b>view</b></button>
+    <label class="Instructions" id="Instructions5_4">: FT arrived</label>
+
+    <div class="space"></div>
+
+    <!-- - Step 6 : Close or Reset, end of crisis - -->
+    <!-- Close button -->
+    <button class="Close" id="CloseButton">
+      <div class="leftright"></div>
+      <div class="rightleft"></div>
+      <label class="CloseLabel">Close</label>
+    </button>
+    <b><text class="etapes" id="etape6">- END OF CRISIS -</text></b>
+    <!-- Reset button -->
+    <button class="Reset" id="ResetButton">
+      <div class="arrow" id="varwidth">
+        <div class="arrow-round"></div>
+        <label class="ResetLabel"><b>Reset</b></label>
+      </div>
+    </button>
+
+    <div class="space"></div>
+
+  </main>
+  <!-- - Popup - -->
+  <!-- - Popup vehicles - -->
+  <div class="popup" id="PoliceVehicleConfirm"><br>DO YOU WANT TO CONFIRM ?<br><br><br>
+    <a href="#policier" class="buttonLeft" id="ConfirmPolice"><b><label class="Texte"
+          id="ConfirmPolice">Confirm</label></b></a>
+    <a href="#policier" class="buttonRight" id="Cancel"><b><label class="Texte" id="Cancel">Cancel</label></b></a>
+  </div>
+  <div class="popup" id="PompierVehicleConfirm"><br>DO YOU WANT TO CONFIRM ?<br><br><br>
+    <a href="#pompier" class="buttonLeft" id="ConfirmPompier"><b><label class="Texte"
+          id="ConfirmPompier">Confirm</label></b></a>
+    <a href="#pompier" class="buttonRight" id="Cancel2"><b><label class="Texte" id="Cancel2">Cancel</label></b></a>
+  </div>
+
+  <!-- - Popup Route Police - -->
+  <div class="popup" id="RoutePoliceConfirm"><br>DO YOU WANT TO CONFIRM THIS ROUTE ?<br><br><br>
+    <a href="#PolicierVehicles" class="buttonLeft" id="ConfirmRoutePolice"><b><label class="Texte"
+          id="ConfirmRoutePolice">Confirm</label></b></a>
+    <a href="#PolicierVehicles" class="buttonRight" id="Cancel3"><b><label class="Texte"
+          id="Cancel3">Cancel</label></b></a>
+  </div>
+  <div class="popup" id="RoutePompierConfirm"><br>DO YOU WANT TO CONFIRM THIS ROUTE ?<br><br><br>
+    <a href="#PompierVehicles" class="buttonLeft" id="ConfirmRoutePompier"><b><label class="Texte"
+          id="ConfirmRoutePompier">Confirm</label></b></a>
+    <a href="#PompierVehicles" class="buttonRight" id="Cancel4"><b><label class="Texte"
+          id="Cancel4">Decline</label></b></a>
+  </div>
+
+  <!-- - Popup Route Firefighters - -->
+  <div class="popup" id="RoutePoliceConfirm2"><br>DO YOU WANT TO CONFIRM THIS ROUTE ?<br><br><br>
+    <a href="#RoutePolicier" class="buttonLeft" id="ConfirmRoutePolice2"><b><label class="Texte"
+          id="ConfirmRoutePolice2">Confirm</label></b></a>
+    <a href="#RoutePolicier" class="buttonRight" id="Cancel5"><b><label class="Texte"
+          id="Cancel5">Cancel</label></b></a>
+  </div>
+  <div class="popup" id="RoutePompierConfirm2"><br>DO YOU WANT TO CONFIRM THIS ROUTE ?<br><br><br>
+    <a href="#RoutePompier" class="buttonLeft" id="ConfirmRoutePompier2"><b><label class="Texte"
+          id="ConfirmRoutePompier2">Confirm</label></b></a>
+    <a href="#RoutePompier" class="buttonRight" id="Cancel6"><b><label class="Texte"
+          id="Cancel6">Decline</label></b></a>
+  </div>
+
+  <!-- - Popup Dispatch - -->
+  <div class="popup" id="DispatchPV"><br>DISPATCHED VEHICLES :<br><label class="TexteDP"
+      id="PVvehicles1">PV#??</label><br id="jump1_1"><label class="TexteDP" id="PVvehicles2">PV#??</label><br
+      id="jump2_1"><label class="TexteDP" id="PVvehicles3">PV#??</label><br><br><br>
+    <a href="#RoutePolicier2" class="buttonLeft" id="ConfirmDispatchPV"><b><label class="Texte"
+          id="ConfirmDispatchPV">Ok</label></b></a>
+  </div>
+  <div class="popup" id="DispatchFT"><br>DISPATCHED VEHICLES :<br><label class="TexteDP"
+      id="FTvehicles1">FT#??</label><br id="jump1"><label class="TexteDP" id="FTvehicles2">FT#??</label><br
+      id="jump2"><label class="TexteDP" id="FTvehicles3">FT#??</label><br id="jump3"><label class="TexteDP"
+      id="FTvehicles4">FT#??</label><br><br><br>
+    <a href="#RoutePompier2" class="buttonLeft" id="ConfirmDispatchFT"><b><label class="Texte"
+          id="ConfirmDispatchFT">Ok</label></b></a>
+  </div>
+
+  <!-- - Popup Breakdown - -->
+  <div class="popup" id="breakdownPV"><br>STATE VEHICLES BREAKDOWN :<br><br>
+    <button class="BreakdownVehicle PV1" id="PV1Police"><b>1</b></button>
+    <button class="BreakdownVehicle PV2" id="PV2Police"><b>2</b></button>
+    <button class="BreakdownVehicle PV3" id="PV3Police"><b>3</b></button>
+    <br><br><button class="CancelSelection" id="CancelSelectionPV"><b>Cancel the selection</b></button><br><br><br>
+    <a href="#PVsent" class="buttonLeft" id="ConfirmBreakdownPV"><b><label class="Texte"
+          id="ConfirmBreakdownPV_">Confirm</label></b></a> OR
+    <a href="#PVsent" class="buttonRight" id="Cancel7"><b><label class="Texte" id="Cancel7">None</label></b></a>
+  </div>
+  <div class="popup" id="breakdownFT"><br>STATE VEHICLES BREAKDOWN :<br><br>
+    <button class="BreakdownVehicle FT1" id="FT1Pompier"><b>1</b></button>
+    <button class="BreakdownVehicle FT2" id="FT2Pompier"><b>2</b></button>
+    <button class="BreakdownVehicle FT3" id="FT3Pompier"><b>3</b></button>
+    <button class="BreakdownVehicle FT4" id="FT4Pompier"><b>4</b></button>
+    <br><br><button class="CancelSelection" id="CancelSelectionFT"><b>Cancel the selection</b></button><br><br><br>
+    <a href="#FTsent" class="buttonLeft" id="ConfirmBreakdownFT"><b><label class="Texte"
+          id="ConfirmBreakdownFT_">Confirm</label></b></a> OR
+    <a href="#FTsent" class="buttonRight" id="Cancel8"><b><label class="Texte" id="Cancel8">None</label></b></a>
+  </div>
+
+  <!-- - Popup vehicles Blocked - -->
+  <div class="popup" id="blockedVEHICLES"><br>STATE VEHICLES BLOCKED :<br><br>
+    <grid>
+      <button class="BreakdownVehicle PV1" id="PVPoliceblocked"><b>POLICE vehicles</b></button>
+    </grid>
+    <b class="space"></b>
+    <grid>
+      <button class="BreakdownVehicle FT1" id="FTPompierblocked"><b>FIRE trucks</b></button>
+    </grid>
+    <br><br><br>
+    <a href="#policier" class="buttonLeft" id="ConfirmBlockedPV"><b><label class="Texte"
+          id="ConfirmBlockedPV">Confirm</label></b></a>
+    <b class="space"></b>
+    <a href="#pompier" class="buttonRight" id="ConfirmBlockedFT"><b><label class="Texte"
+          id="ConfirmBlockedFT">Confirm</label></b></a>
+  </div>
+
+  <!-- - Popup vehicles Arrived - -->
+  <div class="popup" id="arrivedPV"><br>Vehicles Arrived :<br><label class="TexteAR" id="PVvehiclesA1">PV#??</label><br
+      id="jump1_1A"><label class="TexteAR" id="PVvehiclesA2">PV#??</label><br id="jump2_1A"><label class="TexteAR"
+      id="PVvehiclesA3">PV#??</label><br><br><br>
+    <a href="#PVsent" class="buttonLeft" id="ConfirmArrivedPV"><b><label class="Texte"
+          id="ConfirmArrivedPV">Confirm</label></b></a>
+  </div>
+  <div class="popup" id="arrivedFT"><br>Vehicles Arrived :<br><label class="TexteAR" id="FTvehiclesA1">FT#??</label><br
+      id="jump1A"><label class="TexteAR" id="FTvehiclesA2">FT#??</label><br id="jump2A"><label class="TexteAR"
+      id="FTvehiclesA3">FT#??</label><br id="jump3A"><label class="TexteAR" id="FTvehiclesA4">FT#??</label><br><br><br>
+    <a href="#FTsent" class="buttonLeft" id="ConfirmArrivedFT"><b><label class="Texte"
+          id="ConfirmArrivedFT">Confirm</label></b></a>
+  </div>
+
+</body>
+
+</html>

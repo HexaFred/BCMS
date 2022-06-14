@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Tue Jun 14 12:15:08 CEST 2022:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0181-61b5-b94c-00000eadb3f8 
+on database directory memory:C:\Users\fredb\OneDrive\Syncro\L3\TOO\Projet_TOO_CAI_MICHELIX_BORRI\BCMS_database with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 
+Loaded from file:/C:/Users/fredb/.m2/repository/org/apache/derby/derby/10.15.2.0/derby-10.15.2.0.jar
+java.vendor=Oracle Corporation
+java.runtime.version=16.0.2+7-67
+user.dir=C:\Users\fredb\OneDrive\Syncro\L3\TOO\Projet_TOO_CAI_MICHELIX_BORRI
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

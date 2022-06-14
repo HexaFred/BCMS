@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    
+    <artifactId>PauWare2</artifactId>
+    <groupId>com.pauware</groupId>
+    <name>PauWare2</name>
+    <packaging>jar</packaging>
+    <version>1.0</version>
+    
+    <properties>
+        <!--'release' configures the compiler to produce class files that link against the implementation of the given platform version:-->
+        <maven.compiler.release>9</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <compilerArgs>
+                        <!-- (preview language features are only supported for release 15) -->
+                        <!-- <arg>-enable-preview</arg> -->
+                        <arg>-verbose</arg>
+                        <arg>-Xlint:all</arg>
+                    </compilerArgs>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <release>${maven.compiler.release}</release>
+                    <showWarnings>true</showWarnings>
+                    <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>
+        </plugins>
+        <!--Where are source files? Here:-->
+        <sourceDirectory>${project.basedir}/code</sourceDirectory>
+        <!--<testSourceDirectory>${project.basedir}/test</testSourceDirectory>-->
+    </build>
+</project>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    
+    <artifactId>Project</artifactId>
+    <groupId>com.MichelixBorri</groupId>
+    <name>Project</name>
+    <packaging>jar</packaging>
+    <version>1.0</version>
+    
+    <properties>
+        <!-- Target Java 9: -->
+        <maven.compiler.release>11</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    
+    <dependencies>
+        <!-- Embedded: -->
+        <dependency>
+            <groupId>org.glassfish.tyrus</groupId>
+            <artifactId>tyrus-server</artifactId>
+            <version>1.17</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.tyrus</groupId>
+            <artifactId>tyrus-container-grizzly-server</artifactId>
+            <version>1.17</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.json</artifactId>
+            <version>1.1.4</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derby</artifactId>
+            <scope>runtime</scope>
+            <version>10.15.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.pauware</groupId>
+            <artifactId>PauWare2</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <!--<dependency>
+            <groupId>com.pauware</groupId>
+            <artifactId>PauWare2Web</artifactId>
+            <version>1.0</version>
+        </dependency>-->
+    </dependencies>
+    
+    <build>
+        <plugins>
+<!--            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>${project.basedir}/web</directory>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <release>11</release>
+                    <showWarnings>true</showWarnings>
+                    <showDeprecation>true</showDeprecation>
+                    <compilerArgs>
+                        <!-- (preview language features are only supported for release 15) -->
+                        <!-- <arg>-enable-preview</arg> -->
+                        <arg>-verbose</arg>
+                        <arg>-Xlint:all</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <!--Manifest-Version: 1.0-->
+                            <!--Created-By: Maven Jar Plugin 3.2.0-->
+                            <!--Build-Jdk-Spec: 15-->
+                            <!--Class-Path: PauWare2-1.0.jar-->
+                            <!--Main-Class: com.MichelixBorri.BCMS.BCMS-->
+                            <!-- 'PauWare2-1.0.jar' and others are added to the class path: -->
+                            <addClasspath>true</addClasspath>
+                            <mainClass>com.MichelixBorri.BCMS.BCMS</mainClass>
+                        </manifest>
+                    </archive>
+                    <outputDirectory>${project.basedir}/web</outputDirectory>
+                </configuration>
+            </plugin>
+<!--            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.basedir}/web</outputDirectory>
+                            <overWriteReleases>true</overWriteReleases>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>get-resources</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>com.pauware</groupId>
+                                    <artifactId>PauWare2Web</artifactId>
+                                    <version>1.0</version>
+                                    <type>jar</type>
+                                    <overWrite>true</overWrite>
+                                </artifactItem>
+                            </artifactItems>
+                            <includes>web/**</includes>
+                            <outputDirectory>${project.basedir}</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>-->
+        </plugins>
+        <!--Where are source files? Here:-->
+        <sourceDirectory>${project.basedir}/code</sourceDirectory>
+        <!--<testSourceDirectory></testSourceDirectory>-->
+    </build>
+</project>

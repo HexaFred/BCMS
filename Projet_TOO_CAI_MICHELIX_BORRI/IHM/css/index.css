@@ -1,0 +1,1043 @@
+/* - MICHELIX Quentin & BORRI Frédéric - */
+/* -------- main background and general stuff -------- */
+
+html{
+background: linear-gradient(90deg, rgba(0, 108, 255, 1) 0%, rgba(212, 191, 144, 0.3) 50%, rgba(198, 0, 34, 1) 100%);
+background-size: contain;
+background-blend-mode: normal;
+filter: contrast(120%);
+}
+
+body{
+  z-index: 2;
+	justify-content: center;
+	align-items: center;
+  text-align: center;
+  height: 100%;  
+}
+
+.title{
+  display: flex;
+  justify-content: center;
+}
+
+.space{
+  margin-top: 5rem;
+}
+
+/* -------- images -------- */
+
+.bg-img{
+  display:inline-block;
+  position: fixed;
+  z-index:-1;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  margin-top: 10%;
+  filter: contrast(150%) blur(3px) hue-rotate(175deg);
+  opacity: 40%;  
+}
+
+.icon{
+  padding-right: 20px;
+  margin-left: -20px;
+  width: 50px;
+  object-fit:contain;
+  vertical-align: middle;
+}
+
+.icon2{
+  padding-left: 20px;
+  margin-right: -20px;
+  width: 50px;
+  object-fit:contain;
+  vertical-align:middle;
+  filter: none;
+}
+
+#icon3{
+  padding-left: 25px;
+  margin-right: -150px;
+  width: 130px;
+  object-fit:contain;
+  vertical-align:middle;
+}
+
+#icon4{
+  padding-right: 25px;
+  margin-left: -190px;
+  width: 180px;
+  object-fit:contain;
+  vertical-align: middle;
+}
+
+#icon5{
+  padding-left: 50px;
+  margin-right: -200px;
+  width: 100px;
+  object-fit:contain;
+  vertical-align:middle;
+}
+
+#icon5_2{
+  padding-left: 50px;
+  margin-right: -200px;
+  width: 100px;
+  object-fit:contain;
+  vertical-align:middle;
+}
+
+#icon6{
+  padding-right: 50px;
+  margin-left: -100px;
+  width: 100px;
+  object-fit:contain;
+  vertical-align: middle;
+}
+
+#icon6_2{
+  padding-right: 50px;
+  margin-left: -100px;
+  width: 100px;
+  object-fit:contain;
+  vertical-align: middle;
+}
+
+#icon7{
+  padding-left: -10px;
+  margin-right: -230px;
+  width: 250px;
+  object-fit:contain;
+  vertical-align:middle;
+}
+
+#icon8{
+  padding-right: 20px;
+  margin-left: -180px;
+  width: 170px;
+  object-fit:contain;
+  vertical-align: middle;
+}
+
+#icon9{
+  padding-left: 20px;
+  margin-right: -160px;
+  width: 120px;
+  object-fit:contain;
+  vertical-align:middle;
+}
+
+#icon10{
+  padding-right: 20px;
+  margin-left: -160px;
+  width: 120px;
+  object-fit:contain;
+  vertical-align: middle;
+}
+
+#icon11{
+  padding-left: 20px;
+  margin-right: -130px;
+  width: 100px;
+  object-fit:contain;
+  vertical-align:middle;
+}
+
+#icon12{
+  padding-right: 20px;
+  margin-left: -130px;
+  width: 100px;
+  object-fit:contain;
+  vertical-align: middle;
+}
+
+#icon13, #icon13_2, #icon13_3, #icon13_4{
+  width: 100px;
+  object-fit:contain;
+  vertical-align:middle;
+}
+
+
+/* -------- buttons, texts and popups -------- */
+
+/* - connection buttons - */
+
+.button {
+  visibility: hidden;
+  position: relative;
+  display: inline-block;
+  padding: 10px 40px;
+  border: 3px solid rgba(0, 108, 255, 1);
+  border-radius: 5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  font-size: 14px;
+  text-shadow: 0.5px 0.5px 0.5px rgb(0, 0, 0);
+  background-color: rgba(0, 108, 255, 0.1);
+  color: #fff;
+  -webkit-box-reflect: below 0px linear-gradient(transparent, rgba(163, 122, 122, 0.3));
+  transition: 0.3s;
+  cursor: pointer;
+  transition-delay: 0s;
+  box-shadow: 0px 0px 10px blue;
+  border-style:groove;
+}
+
+.button:hover {
+  transition-delay: 0.2s;
+  color: rgb(0, 0, 0);
+  box-shadow: 0px 0px 10px  rgba(0, 108, 255, 1),
+              0px 0px 30px  rgba(0, 108, 255, 1),
+              0px 0px 60px  rgba(0, 108, 255, 1),
+              0px 0px 120px rgba(0, 108, 255, 1),
+              0px 0px 240px rgba(0, 108, 255, 1);
+}
+
+.button span{
+  position: relative;
+  z-index: 100;
+}
+
+.button::before{
+  content:'';
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 2px;
+  background: rgba(0, 108, 255, 1);
+  box-shadow: 5px -8px 0 rgba(0, 108, 255, 1),
+              5px 8px 0 rgba(0, 108, 255, 1);
+  transition: width 0.2s, left 0.2s, height 0.2s, box-shadow 0.2s;
+  transition-delay: 0.5s, 0.2s, 0s, 0s;
+}
+
+.button:hover::before{
+  width: 60%;
+  height: 100%;
+  left: -2px;
+  box-shadow: 5px 0 0 rgba(0, 108, 255, 1),
+              5px 0 0 rgba(0, 108, 255, 1);
+  transition-delay: 0s, 0.5s, 1s, 1s;
+}
+
+.button::after{
+  content:'';
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 2px;
+  background: rgba(0, 108, 255, 1);
+  box-shadow: -5px -8px 0 rgba(0, 108, 255, 1),
+              -5px 8px 0 rgba(0, 108, 255, 1);
+  transition: width 0.2s, right 0.2s, height 0.2s, box-shadow 0.2s;
+  transition-delay: 0.5s, 0.2s, 0s, 0s;
+}
+
+.button:hover::after{
+  width: 60%;
+  height: 100%;
+  right: -2px;
+  box-shadow: -5px 0 0 rgba(0, 108, 255, 1),
+              -5px 0 0 rgba(0, 108, 255, 1);
+  transition-delay: 0s, 0.5s, 1s, 1s;
+}
+
+.button1:active{
+  border-color: gray;
+  top:8px;
+  left:5px;
+}
+
+/* - color button 2 - */
+
+.button2{
+  border: 3px solid rgba(198, 0, 34, 1);
+  background-color: rgba(255, 0, 0, 0.1);
+  box-shadow: 0px 0px 10px red;
+}
+
+.button2:hover {
+  box-shadow: 0px 0px 10px  rgba(198, 0, 34, 1),
+              0px 0px 30px  rgba(198, 0, 34, 1),
+              0px 0px 60px  rgba(198, 0, 34, 1),
+              0px 0px 120px rgba(198, 0, 34, 1),
+              0px 0px 240px rgba(198, 0, 34, 1);
+}
+
+.button2::before{
+  background: rgba(198, 0, 34, 1);
+  box-shadow: 5px -8px 0 rgba(198, 0, 34, 1),
+              5px 8px 0 rgba(198, 0, 34, 1);
+}
+
+.button2:hover::before{
+  box-shadow: 5px 0 0 rgba(198, 0, 34, 1),
+              5px 0 0 rgba(198, 0, 34, 1);
+}
+
+.button2::after{
+  background: rgba(198, 0, 34, 1);
+  box-shadow: -5px -8px 0 rgba(198, 0, 34, 1),
+              -5px 8px 0 rgba(198, 0, 34, 1);
+}
+
+.button2:hover::after{
+  box-shadow: -5px 0 0 rgba(198, 0, 34, 1),
+              -5px 0 0 rgba(198, 0, 34, 1);
+}
+
+.button2:active{
+  border-color: gray;
+  top:8px;
+  right:5px;
+}
+
+/* - connections checkbox - */
+
+input[type="checkbox"]:not(:checked),
+input[type="checkbox"]:checked {
+    position: relative;
+    visibility: hidden;
+}
+
+input[type="checkbox"]:not(:checked) + label,
+input[type="checkbox"]:checked + label {
+    position: relative;
+    padding-left: 55px;
+    margin-bottom: 18px;
+    display: inline-block;
+    font-size: 16px;
+    visibility: hidden;
+}
+
+/* checkbox aspect */
+
+input[type="checkbox"]:not(:checked) + label:before{
+    content: '✕';
+    position: absolute;
+    left: 0px; top: 0px;
+    width: 26px; height: 26px;
+    border: 2.5px groove #000000;
+    background: #8d8d8d;
+    border-radius: 20px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+    color: red;
+    opacity: 80%;
+    filter:contrast(150%);
+    transition: all 0.2s ease ;
+    transform: scale(0.8);
+}
+
+input[type="checkbox"]:checked + label:before {
+    content: '✔';
+    position: absolute;
+    left: 0px; top: 0px;
+    width: 26px; height: 26px;
+    border: 2.5px groove #000000;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+    color: #18ad32;
+    transition: all 0.2s ease ;
+    transform: scale(1);
+}
+
+/* - send button, left and right - */
+
+.buttonLeft{
+  position: relative;
+  cursor: pointer;
+  background-color:#1ECD97;
+  border: none;
+  color: black;
+  padding: 1%;
+  overflow: hidden;
+  box-shadow: 0px 8px 20px #222222;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  border: thick double;
+  border-right-style: none;
+  border-left-style: none;
+  border-color: white;
+  border-width: 0.2rem;
+}
+
+.buttonLeft:active {
+  box-shadow: none;
+  border-color: gray;
+  top:8px;
+  left:5px;
+}
+
+.buttonRight{
+  position: relative;
+  cursor: pointer;
+  background-color:#1ECD97;
+  border: none;
+  color: black;
+  padding: 1%;
+  overflow: hidden;
+  box-shadow: 0px 8px 20px #222222;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  border: thick double;
+  border-right-style: none;
+  border-left-style: none;
+  border-color: white;
+  border-width: 0.2rem;
+}
+
+.buttonRight:active {
+  box-shadow: none;
+  border-color: gray;
+  top:8px;
+  right:5px;
+}
+
+/* - crisis button - */
+
+.buttonCrise{
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  background-color:#1cb182;
+  border: none;
+  color: #fff;
+  padding: 20px;
+  width: 500px; 
+  overflow: hidden;
+  box-shadow: 0px 8px 20px #193047;
+  border-radius: 50px;
+  border: thick double;
+  border-right-style: none;
+  border-left-style: none;
+  border-color: white;
+  border-width: 0.4rem;
+  transition: all 0.2s ease-in;
+}
+
+.buttonCrise:active {
+  box-shadow: none;
+  border-color: gray;
+  top:8px;
+  left:5px;
+}
+
+/* - popup  - */
+
+a{
+  text-decoration: none;
+  color: #fff;
+}
+
+main#blur.active{
+  filter: blur(2px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.popup{
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  padding: 50px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.30);
+  background-color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.2s;
+}
+
+.popup.active{
+  top: 50%;
+  visibility: visible;
+  opacity: 1;
+  background: radial-gradient(circle,rgb(221, 221, 221) 0%, rgb(179, 179, 179) 65%, rgb(114, 114, 114) 90%);
+  filter:contrast(110%);
+  border-radius: 10px;
+}
+
+.Texte{
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+/* - input boxes vehicles - */
+
+input[type="number"]::-webkit-inner-spin-button {
+  cursor: pointer;
+  height: 30px;
+}
+
+.VehiclesInput{
+  height: 30px;
+  width: 50px;
+  border-radius: 8px;
+  border-style: groove;
+  border-color: white;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.750);
+}
+
+.Reverse{
+  direction: rtl;
+}
+
+/* - vehicles popups - */
+
+#ConfirmPolice{
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+#ConfirmPompier{
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+#Cancel{
+  margin-left:10px;
+  padding-right: 10px;
+}
+
+#Cancel2{
+  margin-left:10px;
+  padding-right: 10px;
+}
+
+/* - routes popups - */
+#ConfirmRoutePolice{
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+#ConfirmRoutePompier{
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+#Cancel3{
+  margin-left:10px;
+  padding-right: 10px;
+}
+
+#Cancel4{
+  margin-left:10px;
+  padding-right: 10px;
+}
+
+#ConfirmRoutePolice2{
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+#ConfirmRoutePompier2{
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+#Cancel5{
+  margin-left:10px;
+  padding-right: 10px;
+}
+
+#Cancel6{
+  margin-left:10px;
+  padding-right: 10px;
+}
+
+/* - routes buttons - */
+
+.Route{
+  position: relative;
+  color: white;
+  background-color: black;
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  padding: 10px;
+  box-shadow: 0px 8px 20px #222222;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  margin-right: 5px;
+  outline: none;
+  font-size: 14px;
+}
+
+.Route:active{
+  box-shadow: none;
+  border-color: gray;
+  top:8px;
+}
+
+.Route::before{
+  position: absolute;
+  content: '';
+  height: 0;
+  width: 0;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  bottom: 0;
+  left: 0;
+  box-sizing: border-box;
+}
+
+.Route::after{
+  position: absolute;
+  content: '';
+  height: 0;
+  width: 0;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  top: 0;
+  right: 0;
+  box-sizing: border-box;
+}
+
+.Route:hover::before{
+  height: 38px;
+  width: 25px;
+  border-radius: 10px;
+  border: 4px solid #fff;
+  border-right: none;
+  border-bottom: none;
+  transition: height 0.1s linear,
+              width 0.1s linear 0s;
+}
+
+.Route:hover::after{
+  height: 38px;
+  width: 25px;
+  border-radius: 10px;
+  border: 4px solid #fff;
+  border-left: none;
+  border-top: none;
+  transition: height 0.1s linear,
+              width 0.1s linear 0s;
+}
+
+#RoutePolicier2, #RoutePompier2, #RoutePolicier, #RoutePompier{
+  cursor: not-allowed;
+}
+
+/* - hidden checkbox check routes - */
+
+.hidden{
+  display: none;
+}
+
+/* - dispatch buttons - */
+#ConfirmDispatchFT{
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+#ConfirmDispatchPV{
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+.TexteDP{
+  color: rgb(0, 0, 0);
+}
+
+/* - breakdown buttons - */
+
+.BreakdownVehicle{
+  position: relative;
+  color: white;
+  background-color: #000000c2;
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  padding: 10px;
+  box-shadow: 0px 8px 20px #222222;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  margin-right: 10px;
+  outline: none;
+  font-size: 14px;
+}
+
+.BreakdownVehicle:active{
+  box-shadow: none;
+  border-color: gray;
+  top:8px;
+}
+
+.BreakdownVehicle::before{
+  position: absolute;
+  content: '';
+  height: 0;
+  width: 0;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  bottom: 0;
+  left: 0;
+  box-sizing: border-box;
+}
+
+.BreakdownVehicle::after{
+  position: absolute;
+  content: '';
+  height: 0;
+  width: 0;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  top: 0;
+  right: 0;
+  box-sizing: border-box;
+}
+
+.BreakdownVehicle:hover::before{
+  height: 38px;
+  width: 25px;
+  border-radius: 10px;
+  border: 4px solid white;
+  border-right: none;
+  border-bottom: none;
+  transition: height 0.1s linear,
+              width 0.1s linear 0s;
+}
+
+.BreakdownVehicle:hover::after{
+  height: 38px;
+  width: 25px;
+  border-radius: 10px;
+  border: 4px solid white;
+  border-left: none;
+  border-top: none;
+  transition: height 0.1s linear,
+              width 0.1s linear 0s;
+}
+
+#ConfirmBreakdownPV{
+  margin-right: 8px;
+  margin-left: 8px;
+}
+
+#ConfirmBreakdownFT{
+  margin-right: 8px;
+  margin-left: 8px;
+}
+
+#Cancel7{
+  margin-right: 8px;
+  margin-left: 8px;
+}
+
+#Cancel8{
+  margin-right: 8px;
+  margin-left: 8px;
+}
+
+.CancelSelection{
+  position: relative;
+  color: white;
+  background-color: #000000c2;
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  padding: 10px;
+  box-shadow: 0px 8px 20px #222222;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  margin-right: 10px;
+  outline: none;
+  font-size: 14px;
+}
+
+.CancelSelection{
+  position: relative;
+  color: white;
+  background-color: #000000c2;
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  padding: 10px;
+  box-shadow: 0px 8px 20px #222222;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  margin-right: 10px;
+  outline: none;
+  font-size: 14px;
+  letter-spacing: 1.2px;
+}
+
+.CancelSelection:active{
+  box-shadow: none;
+  border-color: gray;
+  top:8px;
+}
+
+/* - blocked buttons - */
+.space{
+  padding-left:50px;
+  padding-right:50px;
+}
+
+/* - arrived buttons - */
+
+#ConfirmArrivedFT{
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+#ConfirmArrivedPV{
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+.TexteAR{
+  color: rgb(0, 0, 0);
+}
+
+/* - steps - */
+
+.etapes{
+  visibility: hidden;
+  padding: 1mm;
+  display: inline-block;
+  text-align: center;
+  margin-left: 15%;
+  margin-right: 15%;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  position: relative;
+  border: thick double goldenrod;
+  border-width: 0.4rem;
+  border-radius: 1rem;
+  border-right-style: none;
+  border-left-style: none;
+}
+
+.Instructions{
+  letter-spacing: 1.5px;
+  color: yellow;
+  font-family: Arial;
+}
+
+/* - step 1 visibility - */
+
+#PolicierVehicles{
+  visibility: hidden;
+}
+
+#PompierVehicles{
+  visibility: hidden;
+}
+
+/* - step 2 visibility - */
+
+#nbVehiclesPolicier, #nbVehiclesPompier, #icon4, #icon3, #Instructions1, #Instructions1_1 {
+  visibility: hidden;
+}
+
+/* - step 3 visibility - */
+
+#icon5, #icon5_2, #icon6, #icon6_2, #Instructions2, #Instructions2_2, #Instructions3, #Instructions3_2, #RoutePolicier, #RoutePolicier2, #RoutePompier, #RoutePompier2, #R1Police, #R2Police, #R3Police, #R1Pompier, #R2Pompier, #R3Pompier {
+  visibility: hidden;
+}
+
+/* - step 4 visibility - */
+#icon7, #icon8, #PVsent, #FTsent, #Instructions4, #Instructions4_2{
+  visibility: hidden;
+}
+
+/* - step 5_1 visibility - */
+
+#icon9, #icon10, #PVbreakdown, #FTbreakdown, #Instructions5, #Instructions5_2{
+  visibility: hidden;
+}
+
+/* - step 5_2 visibility - */
+
+#icon13, #icon13_2, #icon13_3, #icon13_4, #CrisisMoreSevere, #CrisisLessSevere, #blocked_vehicle, #RAS{
+  visibility: hidden;
+}
+
+/* - step 5_3 visibility - */
+
+#icon11, #icon12, #FTArrived, #PVArrived, #Instructions5_3, #Instructions5_4 {
+  visibility: hidden;
+}
+
+/* - step 6 visibility - */
+
+#CloseButton, #ResetButton {
+  visibility: hidden;
+}
+
+/* close and reset buttons */
+/* close */
+
+.Close{
+  background-color: transparent;
+  border-color: transparent;
+  padding-right: 56px;
+  padding-bottom: 22px;
+  padding-top: 21px;
+  border-radius: 50px;
+  position: relative;
+  margin: auto;
+  width: 1px;
+  height: 1px;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+.Close:active {
+  box-shadow: none;
+  border-color: transparent;
+  top:5px;
+  left:2px;
+}
+
+.leftright{
+  height: 4px;
+  width: 50px;
+  position: absolute;
+  background-color: black;
+  border-radius: 2px;
+  transform: rotate(45deg);
+  transition: all .3s ease-in;
+}
+
+.rightleft{
+  height: 4px;
+  width: 50px;
+  position: absolute;
+  background-color: black;
+  border-radius: 2px;
+  transform: rotate(-45deg);
+  transition: all .3s ease-in;
+}
+
+.CloseLabel{
+  margin-top: 30px;
+  margin-left: -15px;
+  position: absolute;
+  color: black;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all .3s ease-in;
+  opacity: 0;
+}
+
+.Close:hover .leftright{
+  transform: rotate(-45deg);
+  background-color: white;
+}
+.Close:hover .rightleft{
+  transform: rotate(45deg);
+  background-color: white;
+}
+.Close:hover .CloseLabel{
+  opacity: 1;
+}
+
+/* reset */
+
+#varwidth {
+  --width:38px;
+}
+
+.Reset{
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
+  width: 1px;
+  height: 1px;
+  transition: all 0.2s ease-in;
+}
+
+.arrow:active{
+  box-shadow: none;
+  border-color: transparent;
+  top:5px;
+  left:2px;
+}
+
+.arrow {
+  position: relative;
+  width: var(--width);
+  height: var(--width);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+}
+
+.arrow .arrow-round {
+  position: relative;
+  width: var(--width);
+  height: var(--width);
+  border: calc(var(--width) / 4) solid black;
+  border-radius: 50%;
+  border-right-color: transparent;
+  transition: transform 1s;
+}
+
+.arrow .arrow-round::after {
+  content: "";
+  position: relative;
+  top: -63%;
+  left: 35%;
+  border: calc(var(--width) * 0.5) solid #fff;
+  border-bottom-color: black;
+  border-left-color: transparent;
+  border-top-width: 0;
+  border-right-width: 0;
+}
+
+.arrow:hover .arrow-round {
+  transform: rotate(1turn) scale(1.2);
+  border: calc(var(--width) / 4) solid white;
+  border-right-color: transparent;
+  transition: all 1s;
+}
+
+.arrow:hover .arrow-round::after {
+  border-bottom-color: white;
+  border-left-color: transparent;
+  transition: all 1s;
+}
+
+.arrow:hover .ResetLabel{
+  opacity: 1;
+}
+.arrow:hover .ResetLabel{
+  opacity: 1;
+}
+
+.ResetLabel{
+  color: black;
+  margin-top: 18px;
+  margin-left: -25px;
+  font-family: Helvetica, Arial, sans-serif; 
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all .3s ease-in;
+  opacity: 0;
+  position: absolute;
+}
+
+.flecheposition{
+  visibility: hidden;
+}
+
+/* end of css */
